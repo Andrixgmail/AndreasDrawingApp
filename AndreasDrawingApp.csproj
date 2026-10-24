@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>AndreasDrawingApp</AssemblyName>
+    <RootNamespace>AndreasDrawingApp</RootNamespace>
+    <ApplicationIcon></ApplicationIcon>
+    <Platforms>x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Webcam capture -->
+    <PackageReference Include="OpenCvSharp4" Version="4.9.0.20240103" />
+    <PackageReference Include="OpenCvSharp4.runtime.win" Version="4.9.0.20240103" />
+    <PackageReference Include="OpenCvSharp4.WpfExtensions" Version="4.9.0.20240103" />
+
+    <!-- ONNX hand-tracking inference -->
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.18.0" />
+
+    <!-- Canvas rendering / PNG export -->
+    <PackageReference Include="SkiaSharp" Version="2.88.8" />
+    <PackageReference Include="SkiaSharp.Views.WPF" Version="2.88.8" />
+
+    <!-- PDF export -->
+    <PackageReference Include="QuestPDF" Version="2024.3.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Ship the ONNX model(s) next to the exe -->
+    <None Include="Assets\onnx_models\*.onnx" CopyToOutputDirectory="PreserveNewest" Condition="Exists('Assets\onnx_models')" />
+  </ItemGroup>
+
+</Project>

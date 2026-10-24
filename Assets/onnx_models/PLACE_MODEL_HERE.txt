@@ -1,0 +1,6 @@
+Put your hand-landmark ONNX model in this folder, named:
+
+    hand_landmark.onnx
+
+See the "ONNX Model: Download & Setup" section of README.md at the project root
+for exactly where to get it and how to convert it if needed.
